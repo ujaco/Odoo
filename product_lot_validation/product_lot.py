@@ -17,7 +17,6 @@ class stock_production_lot(osv.osv):
     
 
     def _check_date(self, cursor, user, ids, context=None):
-        import pydevd;pydevd.settrace()
         for lot in self.browse(cursor, user, ids, context=context):
             life_date = datetime.strptime(lot.life_date, "%Y-%m-%d %H:%M:%S").date()
             if life_date < datetime.today().date():
